@@ -1,0 +1,3 @@
+﻿let rng: 100; len:10;  a[!len]: 2 ; sum : sumArray(a) 
+in print toString(!sum)
+end

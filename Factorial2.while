@@ -1,0 +1,12 @@
+﻿let n: 4; y: 1
+in while <>(!n,0)
+   do print toString(!n); 
+      print toString(!y);
+      y := *(!n,!y);
+      n := -(!n,1)
+   od;
+   print "Result is: ";
+   print toString(!n);
+   print toString(!y) 
+end
+

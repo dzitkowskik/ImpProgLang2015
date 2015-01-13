@@ -1,0 +1,53 @@
+\title{
+02257 Applied functional programming \\
+Project 1 \\
+Interpreter for an imperative programming language
+}
+\author{
+        Karol Dzitkowski - s142246
+}
+\date{\today}
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+\maketitle
+\setlength{\parindent}{0pt}
+With the signatures the group membersaccount for:
+\begin{enumerate}
+\item The extension from the minimal solution is made by the group
+members only
+\item No part of their solution is distributed to other groups
+\item The group members have contributed equally to the solution
+\end{enumerate}
+Group members:
+\begin{itemize}
+\item Karol Dzitkowski - s142246
+\end{itemize}
+Signatures:
+\clearpage
+
+\section{Status of the solution}
+I managed to successfully implement interpreter for all predefined $.while$ files. 
+I wrote two additional scripts: Example1.while and Example2.while which are also working properly.
+These examples are testing features of the language like nested procedures, returning values, 
+code multiline, nested comments and even passing constant values to the procedure. 
+All of these seems to work.
+
+\section{Extensions}
+Due to I worked alone I added only support for writing multiline and possibly nested comments in a code,
+and also a functionality of passing parameters as constants (which won't be changed by a procedure) till
+it was anoying when one had to use temporary variables since all parameters are passed by references. It
+is done by using a new keyword $const$ and is different than passing parameter by value (using $!$). The
+value is locally copied and stored in store with different location and procedure is working on a copied value.
+
+\section{Reflections}
+I found writing a simple interpreter in $F\#$ relatively easy and prowerful. What is still most annoying
+right now is lack of simple operators $+,-,...$ which can be used in normal way instead of using them like
+a normal functions. It was also really easy to debug parsing which I found really convenient. In every
+programming language comments are essential for writing a good readable code so I decided to add this
+feature as it was really easy using fslex even for a nested comments when we have to follow the scope of
+comments. Summing up I think $F\#$ is an amazing tool for writing interpreters for all kind of languages.
+
+\end{document}

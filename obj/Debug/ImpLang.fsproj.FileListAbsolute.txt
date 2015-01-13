@@ -1,0 +1,10 @@
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\bin\Debug\Factorial2.while
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\bin\Debug\WhileInterpreter.XML
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\bin\Debug\WhileInterpreter.exe
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\bin\Debug\WhileInterpreter.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\bin\Debug\FSharp.PowerPack.dll
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\bin\Debug\FSharp.PowerPack.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\bin\Debug\FSharp.PowerPack.xml
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\obj\Debug\WhileInterpreter.exe
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\obj\Debug\WhileInterpreter.pdb
+C:\Users\mire\Documents\MRH data\Kurser\02257-15\Project1\Handout\Test\ImpProgLang\obj\Debug\ImpLang.fsprojResolveAssemblyReference.cache

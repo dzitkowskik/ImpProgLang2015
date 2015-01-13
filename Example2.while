@@ -1,0 +1,27 @@
+﻿let v: 10; 
+	a: 0;
+	/*** THIS FUNCTION /* sumOf... */
+	is summing n consecutive numbers
+	*/
+	proc sumOfConsecutiveNumbers(n)
+		let result: 0;
+		in
+			while <>(!n,0)
+			do
+				result := +(!result, !n);
+				n := -(!n, 1)
+			od;
+			return result
+		end
+in
+	a := sumOfConsecutiveNumbers(const v);
+	/* now v is still 10 */
+	print "sum of numbers: ";
+	while <>(!v,0)
+	do
+		print toString(!v);
+		v := -(!v, 1)
+	od;
+	print "is ";
+	print toString(!a)
+end

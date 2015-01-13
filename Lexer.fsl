@@ -1,0 +1,79 @@
+﻿{ // Lexer spec. for simple imperative language      Michael R. Hansen 05-01-2014 
+module Lexer
+
+open System
+open System.Text
+open Parser
+open Microsoft.FSharp.Text.Lexing
+
+let keyword s = 
+    match s with
+    | "const"     -> CONST
+    | "return"    -> RETURN
+    | "if"        -> IF
+    | "then"      -> THEN
+    | "else"      -> ELSE
+    | "fi"        -> FI
+    | "rec"       -> REC
+    | "proc"      -> PROC
+    | "call"      -> CALL
+    | "print"     -> PRINT
+    | "skip"      -> SKIP
+    | "let"       -> LET 
+    | "in"        -> IN
+    | "end"       -> END 
+    | "od"        -> OD 
+    | "while"     -> WHILE
+    | "do"        -> DO
+    | "true"      -> BOOL(true) 
+    | "false"     -> BOOL(false)
+    | "toString"  -> NAME("toString")
+    | _           -> NAME s  
+}
+
+// These are some regular expression definitions
+let digit = ['0'-'9']
+let whitespace = [' ' '\t' ]
+let newline = ('\n' | '\r' '\n')
+let char = ['A'-'Z' 'a'-'z']
+let int = digit+
+let identifier  = char(char|digit|['_'])*
+let quote                 = '\"'
+let StringConst           = quote ([^'\"'])* quote
+
+
+rule tokenize = 
+  parse
+  | whitespace  { tokenize lexbuf }
+  | newline     { lexbuf.EndPos <- lexbuf.EndPos.NextLine; tokenize lexbuf }
+  | int         { INT<| Int32.Parse(Encoding.UTF8.GetString(lexbuf.Lexeme)) }
+  | StringConst { let str = (Encoding.UTF8.GetString(lexbuf.Lexeme))
+                  let last = str.Length - 1
+                  STRING (str.Remove(last).Remove(0,1)) }
+  | "!"         { CONTOF} 
+  | "("         { LPAR  } 
+  | ")"         { RPAR  }  
+  | "["         { LBRA  }
+  | "]"         { RBRA  }
+  | ";"         { SEMI  }
+  | ":"         { COLON }
+  | ","         { COMMA }
+  | "."         { DOT }
+  | ":="        { ASG   }
+  | "<>"        { NAME("<>") }
+  | "<"         { NAME("<") } 
+  | "*"         { NAME("*") }
+  | "-"         { NAME("-") }
+  | "="         { NAME("=") }
+  | "+"         { NAME("+") }  
+  | "/*"        { comments 0 lexbuf }
+  | identifier  { keyword(Encoding.UTF8.GetString(lexbuf.Lexeme)) }
+  | eof         { EOF }
+and comments level = parse
+  | "*/"    {
+          if level = 0 then tokenize lexbuf
+          else comments (level-1) lexbuf
+        }
+  | "/*"    { comments (level+1) lexbuf }
+  | _       { comments level lexbuf }
+

@@ -1,0 +1,26 @@
+﻿proc randomArray(ran, len) 
+   let a[!len]: 0;
+       i: 0
+   in while <(!i,a.length)
+      do a[!i] := randomInt(!ran);
+         i     := +(!i,1)
+      od;
+      return a
+   end ;
+
+proc printArray(a)  
+    let i: 0
+    in while <(!i,a.length)
+      do print toString(a[!i]);
+         i := +(!i,1)
+      od
+    end ;
+
+proc sumArray(a)  
+    let sum: 0; i: 0
+    in while <(!i,a.length)
+       do sum := +(!sum, a[!i]);
+          i   := +(!i,1)
+       od;
+       return !sum
+    end
